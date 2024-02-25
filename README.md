@@ -41,3 +41,7 @@ bundle exec jekyll serve
 Port forwarding happens automagically once the Jekyll web server is running.
 
 ## Deployment
+```sh
+az login
+./deploy.sh [sitename]
+```
