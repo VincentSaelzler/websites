@@ -42,12 +42,15 @@ bundle exec jekyll serve
 Port forwarding happens automagically once the Jekyll web server is running.
 
 ## Deployment
+First, get from the local environment to Azure blob storage.
+
 ```sh
 az login
 ./deploy.sh cookbook
 ./deploy.sh homepage
 ./deploy.sh love
 ```
+Then, see [onebox](https://github.com/VincentSaelzler/onebox) repo for instructions on moving to production servers.
 
 ## Photo Import
 The `photo-shrink` directory is ignored by source control.
