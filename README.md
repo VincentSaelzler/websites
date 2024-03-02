@@ -35,6 +35,7 @@ bundle install
 
 Run this command to start the server. Do ctrl-c then rerun to see changes.
 ```sh
+cd cookbook
 bundle exec jekyll serve
 ```
 
@@ -43,5 +44,19 @@ Port forwarding happens automagically once the Jekyll web server is running.
 ## Deployment
 ```sh
 az login
-./deploy.sh [sitename]
+./deploy.sh cookbook
+./deploy.sh homepage
+./deploy.sh love
 ```
+
+## Photo Import
+The `photo-shrink` directory is ignored by source control.
+
+If necessary, create directories:
+- `photo-shrink/in`
+- `photo-shrink/out`
+
+To perform the shrink:
+- Place full-size photos in `photo-shrink/in`
+- Run `python3 ./photo-shrink.py`
+- Copy small photos from `photo-shrink/out` to desired target folder.
