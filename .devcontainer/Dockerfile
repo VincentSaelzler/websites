@@ -5,9 +5,9 @@ RUN apt-get update && apt-get full-upgrade -y
 # download git repository
 RUN apt-get install -y git
 
-# use jekyll with bundler-based versioning
+# use bundler-based versioning and dependency management
 RUN apt-get install -y ruby-full build-essential zlib1g-dev
-RUN gem install jekyll bundler
+RUN gem install bundler
 
 # shrink photos using the photo-shrink.py script
 RUN apt install -y imagemagick python3
