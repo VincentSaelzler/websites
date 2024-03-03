@@ -2,26 +2,27 @@
 site=$1
 
 # file and directory names
-sourcedir=~/$site
-sourcefile=~/$site-source.tar.gz
-sitedir=$sourcedir/_site
-sitefile=~/$site-site.tar.gz
+sourcedir=~/websites
+sourcearchive=~/websites-source.tar.gz
+sitedir=$sourcedir/$site
+sitefiles=$sitedir/_site
+sitearchive=~/$site-site.tar.gz
 
-# fresh copy of source code
+# # fresh copy of source code
 rm -rf $sourcedir
-git clone https://github.com/VincentSaelzler/$site $sourcedir
+git clone --recurse-submodules https://github.com/VincentSaelzler/websites $sourcedir
 
 # compressed archive of source code
-tar --create --gzip --file $sourcefile --directory $sourcedir .
+tar --create --gzip --file $sourcearchive --directory $sourcedir .
 
 # site output
-cd $sourcedir
+cd $sitedir
 bundle install
 bundle exec jekyll build
 
 # compressed archive of site output
-tar --create --gzip --file $sitefile --directory $sitedir .
+tar --create --gzip --file $sitearchive --directory $sitefiles .
 
 # compressed archives to blob storage
-az storage blob upload --account-name saelzlerwebsites --container-name deployment --file $sourcefile --overwrite
-az storage blob upload --account-name saelzlerwebsites --container-name deployment --file $sitefile --overwrite
+az storage blob upload --account-name saelzlerwebsites --container-name deployment --file $sourcearchive --overwrite --auth-mode login
+az storage blob upload --account-name saelzlerwebsites --container-name deployment --file $sitearchive --overwrite --auth-mode login
