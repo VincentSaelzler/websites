@@ -63,3 +63,10 @@ To perform the shrink:
 - Place full-size photos in `photo-shrink/in`
 - Run `python3 ./photo-shrink.py`
 - Copy small photos from `photo-shrink/out` to desired target folder.
+
+## Jekyll Theme
+https://github.com/mmistakes/minimal-mistakes
+
+https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+
+
