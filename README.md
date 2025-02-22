@@ -6,13 +6,26 @@ Visual Studio Code with Windows Extension
   + `mervin.markdown-formatter`
   + `ms-vscode-remote.remote-wsl`
 
-## Project-Specific Development Environment
+## Ruby Packages and Gems
+
+Install the APT managed version of `bundler` , then configure `bundler` to install other gems in a directory the non-root user has permissions to.
 
 ```sh
-# bundler-based versioning and dependency management
-sudo apt install ruby-full build-essential zlib1g-dev
-sudo gem install bundler
+sudo apt install ruby-full build-essential zlib1g-dev ruby-bundler
+```
+
+[stackoverflow](https://stackoverflow.com/questions/16031061/force-bundler-to-install-gems-in-user-s-home-directory): *This matches where gem install --user-install puts gems on most modern operating systems*
+
+```sh
+bundle config set --local path '/home/vince/.gem'
+cd /home/vince/websites
+# rm Gemfile.lock
+bundle install
+```
+
 # shrink photos using the photo-shrink.py script
+
+```sh
 sudo apt install imagemagick python3
 ```
 
