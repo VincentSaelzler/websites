@@ -21,19 +21,15 @@ WSL VS Code Extensions
 
 ## Clone Source
 
-### Option: GUI
-
 ```sh
-# use vscode clone repository dialog, then...
+git clone https://github.com/VincentSaelzler/websites # what gui does
 git submodule update --init --remote
-git submodule foreach 'git checkout main'
-```
 
-### Option: CLI
-
-```sh
+# ...or use all-in-one command
 git clone --recurse-submodules https://github.com/VincentSaelzler/websites
-# ... then?
+
+# then get submodules out of detached head state
+git submodule foreach 'git checkout main'
 ```
 
 ## Local Development Site
