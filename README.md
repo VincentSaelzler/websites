@@ -8,19 +8,24 @@ Visual Studio Code with Windows Extension
 
 ## Ruby Packages and Gems
 
-Install the APT managed version of `bundler` , then configure `bundler` to install other gems in a directory the non-root user has permissions to.
+Install the APT managed version of `ruby` and `bundler` , then use `bundler` to install jekyll-specific gems at the system level.
 
 ```sh
 sudo apt install ruby-full build-essential zlib1g-dev ruby-bundler
 ```
 
-[stackoverflow](https://stackoverflow.com/questions/16031061/force-bundler-to-install-gems-in-user-s-home-directory): *This matches where gem install --user-install puts gems on most modern operating systems*
-
 ```sh
-bundle config set --local path '/home/vince/.gem'
-cd /home/vince/websites
+cd ~
+git clone --recurse-submodules https://github.com/VincentSaelzler/websites
+cd ~/websites
+git submodule foreach 'git checkout main'
+
+# just run as sudo... PLEASE
+# two times now i've sunk multiple hours into trying user installs
+# but paths etc. always become a problem. in case i REALLY need user
+# install vs system, then don't use apt at all; install ruby (as a whole) some other way
 # rm Gemfile.lock
-bundle install
+sudo bundle install
 ```
 
 # shrink photos using the photo-shrink.py script
