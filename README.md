@@ -2,7 +2,7 @@
 
 Windows with WSL: Ubuntu
 
-Visual Studio Code with Windows Extension
+Visual Studio Code with Extensions
   + `mervin.markdown-formatter`
   + `ms-vscode-remote.remote-wsl`
 
@@ -13,29 +13,6 @@ Install the APT managed version of `ruby` and `bundler` , then use `bundler` to 
 ```sh
 sudo apt install ruby-full build-essential zlib1g-dev ruby-bundler
 ```
-
-```sh
-cd ~
-git clone --recurse-submodules https://github.com/VincentSaelzler/websites
-cd ~/websites
-git submodule foreach 'git checkout main'
-
-# just run as sudo... PLEASE
-# two times now i've sunk multiple hours into trying user installs
-# but paths etc. always become a problem. in case i REALLY need user
-# install vs system, then don't use apt at all; install ruby (as a whole) some other way
-# rm Gemfile.lock
-sudo bundle install
-```
-
-# shrink photos using the photo-shrink.py script
-
-```sh
-sudo apt install imagemagick python3
-```
-
-WSL VS Code Extensions
-* `streetsidesoftware.code-spell-checker`
 
 ## Clone Source
 
@@ -50,15 +27,30 @@ git clone --recurse-submodules https://github.com/VincentSaelzler/websites
 git submodule foreach 'git checkout main'
 ```
 
+```sh
+# just run as sudo... PLEASE
+# two times now i've sunk multiple hours into trying user installs
+# but paths etc. always become a problem. in case i REALLY need user
+# install vs system, then don't use apt at all; install ruby (as a whole) some other way
+rm Gemfile.lock
+sudo bundle install
+```
+
 ## Local Development Site
 
 ```sh
 cd cookbook
-sudo bundle install
-# there will be warnings about running bundler as root.
-# haven't figured out how to run/install bundler as a non-root user
 bundle exec jekyll serve
 ```
+
+# shrink photos using the photo-shrink.py script
+
+```sh
+sudo apt install imagemagick python3
+```
+
+WSL VS Code Extensions
+* `streetsidesoftware.code-spell-checker`
 
 Port forwarding happens automagically once the Jekyll web server is running.
 
