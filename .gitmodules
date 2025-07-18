@@ -1,9 +1,9 @@
 [submodule "cookbook"]
 	path = cookbook
-	url = https://github.com/VincentSaelzler/cookbook
+	url = git@github.com:VincentSaelzler/cookbook.git
 [submodule "love"]
 	path = love
-	url = https://github.com/VincentSaelzler/love
+	url = git@github.com:VincentSaelzler/love.git
 [submodule "homepage"]
 	path = homepage
-	url = https://github.com/VincentSaelzler/homepage
+	url = git@github.com:VincentSaelzler/homepage.git
